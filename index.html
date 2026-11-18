@@ -3,19 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سایت من</title>
+
+    <!-- SEO -->
+    <title>علی اکبر حیدری | وب‌سایت رسمی</title>
+
+    <meta name="description" content="وب‌سایت رسمی علی اکبر حیدری؛ معرفی پروژه‌ها، فعالیت‌ها و مطالب جدید. این وب‌سایت در حال توسعه است.">
+
+    <meta name="author" content="Ali Akbar Heidari">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0b1020">
+
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="sVDmWlrOuNTCsTVAkB38ToRTJ7T6pBloMy8GKPe6JK4">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="علی اکبر حیدری | وب‌سایت رسمی">
+    <meta property="og:description" content="وب‌سایت رسمی علی اکبر حیدری؛ در حال توسعه و آماده‌سازی امکانات جدید.">
+    <meta property="og:url" content="https://my-site-dey.pages.dev/">
+    <meta property="og:locale" content="fa_IR">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://my-site-dey.pages.dev/">
+
+    <!-- Sitemap و Robots به صورت فایل جداگانه در ریشه سایت قرار می‌گیرند -->
+
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            background: #101827;
-            color: white;
-            font-family: sans-serif;
+            min-height: 100vh;
+            background: #0b1020;
+            color: #f1f5f9;
+            font-family: Tahoma, Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
             text-align: center;
-            padding-top: 100px;
+            padding: 55px 30px;
+            background: #121a2d;
+            border: 1px solid #26334d;
+            border-radius: 22px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 9px 18px;
+            border-radius: 30px;
+            background: rgba(56, 189, 248, 0.12);
+            color: #38bdf8;
+            font-size: 13px;
+            margin-bottom: 30px;
+        }
+
+        .badge span {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            background: #38bdf8;
+            border-radius: 50%;
+            margin-left: 7px;
+        }
+
+        h1 {
+            font-size: 34px;
+            margin-bottom: 18px;
+            color: #ffffff;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 16px;
+            line-height: 2;
+            margin-bottom: 30px;
+        }
+
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: #38bdf8;
+            margin: 0 auto 30px;
+            border-radius: 5px;
+        }
+
+        .description {
+            color: #cbd5e1;
+            font-size: 14px;
+            line-height: 2.2;
+            margin-bottom: 35px;
+        }
+
+        .developer {
+            padding-top: 25px;
+            border-top: 1px solid #26334d;
+            color: #94a3b8;
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .developer strong {
+            display: block;
+            color: #38bdf8;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        footer {
+            margin-top: 30px;
+            color: #64748b;
+            font-size: 11px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 40px 22px;
+            }
+
+            h1 {
+                font-size: 27px;
+            }
+
+            .subtitle {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
+
 <body>
-    <h1>سلام دنیا!</h1>
-    <p>سایت من با موفقیت راه‌اندازی شد.</p>
+
+    <main class="container">
+
+        <div class="badge">
+            <span></span>
+            وب‌سایت در حال توسعه
+        </div>
+
+        <h1>سلام، خوش آمدید!</h1>
+
+        <p class="subtitle">
+            به وب‌سایت رسمی علی اکبر حیدری خوش آمدید.
+        </p>
+
+        <div class="divider"></div>
+
+        <p class="description">
+            این وب‌سایت در حال طراحی و توسعه است.
+            <br>
+            هدف ما ایجاد فضایی برای ارائه پروژه‌ها،
+            معرفی فعالیت‌ها و انتشار مطالب و امکانات جدید است.
+            <br>
+            به‌زودی با محتوایی کامل‌تر و امکاناتی جذاب‌تر بازخواهیم گشت.
+            <br>
+            از همراهی شما سپاسگزاریم.
+        </p>
+
+        <div class="developer">
+            طراحی و توسعه توسط
+            <strong>علی اکبر حیدری</strong>
+        </div>
+
+        <footer>
+            © 2026 Ali Akbar Heidari. All Rights Reserved.
+        </footer>
+
+    </main>
+
 </body>
 </html>
