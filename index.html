@@ -1,33 +1,18 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<!DOCTYPE html><html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>None Store | Main Menu</title>
-
-<meta name="description" content="None Store؛ مرجع معرفی اپلیکیشن‌ها، ابزارهای دیجیتال، فایل‌ها، منابع آموزشی و خدمات آنلاین. ابزارها و امکانات کاربردی را در یک مکان پیدا کنید.">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>None Store | Main Menu</title><meta name="description" content="None Store؛ مرجع معرفی اپلیکیشن‌ها، ابزارهای دیجیتال، فایل‌ها، منابع آموزشی و خدمات آنلاین.">
 <meta name="author" content="None Store">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#080d19">
-
-<link rel="canonical" href="https://my-site-dey.pages.dev/">
-
-<meta name="google-site-verification" content="I41QGsEq5GIUhqQL0QrSNV7fu2Wv5wSLNnD6G8c_C8w">
-
-<meta property="og:type" content="website">
+<meta name="google" content="notranslate" content="false"><link rel="canonical" href="https://my-site-dey.pages.dev/"><meta name="google-site-verification" content="I41QGsEq5GIUhqQL0QrSNV7fu2Wv5wSLNnD6G8c_C8w"><meta property="og:type" content="website">
 <meta property="og:site_name" content="None Store">
 <meta property="og:title" content="None Store | Main Menu">
 <meta property="og:description" content="اپلیکیشن‌ها، ابزارها، فایل‌ها و خدمات دیجیتال در None Store">
 <meta property="og:url" content="https://my-site-dey.pages.dev/">
-<meta property="og:locale" content="fa_IR">
-
-<meta name="twitter:card" content="summary">
+<meta property="og:locale" content="fa_IR"><meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="None Store">
-<meta name="twitter:description" content="مرکز ابزارها و خدمات دیجیتال">
-
-<script type="application/ld+json">
+<meta name="twitter:description" content="مرکز ابزارها و خدمات دیجیتال"><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -48,9 +33,7 @@
     }
   ]
 }
-</script>
-
-<style>
+</script><style>
 :root {
     --bg: #080d19;
     --panel: #101a2b;
@@ -65,6 +48,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -102,19 +86,42 @@ button {
     margin: auto;
 }
 
+/* PAGE NAVIGATION */
+
+.page-section {
+    display: none;
+    animation: pageEnter .28s ease;
+}
+
+.page-section.active {
+    display: block;
+}
+
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+        transform: translateY(7px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* HEADER */
 
 .header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(8,13,25,.94);
+    background: rgba(8,13,25,.96);
     backdrop-filter: blur(15px);
     border-bottom: 1px solid var(--border);
 }
 
 .header-inner {
-    height: 66px;
+    height: 64px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -124,6 +131,7 @@ button {
     font-size: 21px;
     font-weight: bold;
     direction: ltr;
+    order: 1;
 }
 
 .logo span {
@@ -133,14 +141,17 @@ button {
 .desktop-nav {
     display: flex;
     gap: 22px;
+    order: 2;
 }
 
 .desktop-nav a {
     color: var(--muted);
     font-size: 13px;
+    transition: color .2s;
 }
 
-.desktop-nav a:hover {
+.desktop-nav a:hover,
+.desktop-nav a.active {
     color: var(--primary);
 }
 
@@ -153,6 +164,7 @@ button {
     background: var(--panel);
     color: white;
     font-size: 23px;
+    order: 3;
 }
 
 /* MOBILE DRAWER */
@@ -175,13 +187,14 @@ button {
 .drawer {
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
+    right: auto;
     width: min(82%, 320px);
     height: 100%;
     z-index: 201;
     background: #0d1728;
-    border-left: 1px solid var(--border);
-    transform: translateX(105%);
+    border-right: 1px solid var(--border);
+    transform: translateX(-105%);
     transition: transform .3s ease;
     padding: 22px;
     overflow-y: auto;
@@ -228,9 +241,11 @@ button {
     color: var(--muted);
     border-radius: 10px;
     font-size: 14px;
+    transition: .2s;
 }
 
-.drawer-links a:hover {
+.drawer-links a:hover,
+.drawer-links a.active {
     color: var(--primary);
     background: var(--panel2);
 }
@@ -325,6 +340,14 @@ button {
     border-color: var(--primary);
 }
 
+.no-results {
+    display: none;
+    text-align: center;
+    padding: 20px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
 /* SECTIONS */
 
 section {
@@ -414,6 +437,7 @@ section {
     color: var(--muted);
     font-size: 12px;
     line-height: 2.2;
+    margin-bottom: 8px;
 }
 
 /* HORIZONTAL CONTENT */
@@ -473,7 +497,8 @@ footer {
     margin-bottom: 7px;
 }
 
-.footer-grid a:hover {
+.footer-grid a:hover,
+.footer-grid a.active {
     color: var(--primary);
 }
 
@@ -486,12 +511,29 @@ footer {
     color: #64748b;
 }
 
-.no-results {
-    display: none;
-    text-align: center;
-    padding: 25px;
-    color: var(--muted);
-    font-size: 13px;
+/* RIPPLE EFFECT */
+
+.ripple-target {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.ripple-effect {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(56,189,248,.3);
+    transform: scale(0);
+    animation: rippleAnimation .55s linear;
+    pointer-events: none;
+    z-index: 5;
+}
+
+@keyframes rippleAnimation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
 }
 
 /* MOBILE */
@@ -542,6 +584,7 @@ footer {
 }
 
 @media(max-width:370px) {
+
     .grid,
     .horizontal-list {
         grid-template-columns: 1fr;
@@ -553,523 +596,598 @@ footer {
 }
 
 @media(prefers-reduced-motion:reduce) {
+
     *,
     *::before,
     *::after {
         scroll-behavior: auto !important;
-        transition: none !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
     }
 }
-  /* Responsive Discover Section */
+</style></head><body><!-- HEADER --><header class="header">
+    <div class="container header-inner">    <a href="#home" class="logo ripple-target">
+        None <span>Store</span>
+    </a>
 
-.featured {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    padding: clamp(14px, 4vw, 24px);
-    overflow-wrap: break-word;
-}
+    <nav class="desktop-nav" aria-label="منوی اصلی">
 
-.featured h2 {
-    font-size: clamp(16px, 4.5vw, 21px);
-    line-height: 1.7;
-    max-width: 100%;
-    overflow-wrap: anywhere;
-}
+        <a href="#home" data-page="home">Main Menu</a>
+        <a href="#categories" data-page="categories">Categories</a>
+        <a href="#apps" data-page="apps">Applications</a>
+        <a href="#tools" data-page="tools">Tools</a>
+        <a href="#about" data-page="about">About</a>
 
-.featured p {
-    font-size: clamp(11px, 3.2vw, 13px);
-    line-height: 2.2;
-    max-width: 100%;
-    overflow-wrap: anywhere;
-}
-
-@media (max-width: 480px) {
-    .featured {
-        border-radius: 14px;
-        padding: 16px;
-    }
-
-    .featured h2 {
-        font-size: 16px;
-        margin-bottom: 8px;
-    }
-
-    .featured p {
-        font-size: 12px;
-        line-height: 2.1;
-    }
-}
-
-@media (max-width: 350px) {
-    .featured {
-        padding: 13px;
-    }
-
-    .featured h2 {
-        font-size: 15px;
-    }
-
-    .featured p {
-        font-size: 11px;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<header class="header">
-    <div class="container header-inner">
-
-        <button class="menu-button" id="menuButton"
-                aria-label="باز کردن منو"
-                aria-expanded="false"
-                aria-controls="mobileDrawer">
-            ☰
-        </button>
-
-        <a href="#home" class="logo">None <span>Store</span></a>
-
-        <nav class="desktop-nav" aria-label="منوی اصلی">
-            <a href="#home">Main Menu</a>
-            <a href="#categories">Categories</a>
-            <a href="#apps">Applications</a>
-            <a href="#tools">Tools</a>
-            <a href="#about">About</a>
-        </nav>
-
-    </div>
-</header>
-
-<!-- MOBILE DRAWER -->
-
-<div class="overlay" id="overlay"></div>
-
-<aside class="drawer" id="mobileDrawer"
-       aria-label="منوی موبایل"
-       aria-hidden="true">
-
-    <div class="drawer-header">
-        <div class="drawer-title">None <span>Store</span></div>
-        <button class="close-button" id="closeButton"
-                aria-label="بستن منو">×</button>
-    </div>
-
-    <nav class="drawer-links">
-        <a href="#home">🏠 Main Menu</a>
-        <a href="#categories">📂 Categories</a>
-        <a href="#apps">📱 Applications</a>
-        <a href="#tools">🛠 Online Tools</a>
-        <a href="#files">📁 Files & Resources</a>
-        <a href="#services">🌐 Digital Services</a>
-        <a href="#guides">📚 Guides</a>
-        <a href="#updates">🚀 Updates</a>
-        <a href="#about">ℹ️ About Us</a>
-        <a href="#faq">❔ FAQ</a>
     </nav>
 
-    <p class="drawer-caption">
-        None Store · Digital World
-    </p>
+    <button
+        class="menu-button ripple-target"
+        id="menuButton"
+        aria-label="باز کردن منو"
+        aria-expanded="false"
+        aria-controls="mobileDrawer">
+        ☰
+    </button>
 
-</aside>
+</div>
 
-<main>
+</header><!-- MOBILE DRAWER --><div class="overlay" id="overlay"></div><aside
+    class="drawer"
+    id="mobileDrawer"
+    aria-label="منوی موبایل"
+    aria-hidden="true"><div class="drawer-header">
 
-<!-- HOME -->
+    <div class="drawer-title">
+        None <span>Store</span>
+    </div>
 
-<div class="container hero" id="home">
+    <button
+        class="close-button ripple-target"
+        id="closeButton"
+        aria-label="بستن منو">
+        ×
+    </button>
 
-    <div class="badge">WELCOME TO NONE STORE</div>
+</div>
 
-    <h1><span>Main Menu</span></h1>
+<nav class="drawer-links">
+
+    <a href="#home" data-page="home">🏠 Main Menu</a>
+    <a href="#categories" data-page="categories">📂 Categories</a>
+    <a href="#apps" data-page="apps">📱 Applications</a>
+    <a href="#tools" data-page="tools">🛠 Online Tools</a>
+    <a href="#files" data-page="files">📁 Files & Resources</a>
+    <a href="#services" data-page="services">🌐 Digital Services</a>
+    <a href="#guides" data-page="guides">📚 Guides</a>
+    <a href="#updates" data-page="updates">🚀 Updates</a>
+    <a href="#about" data-page="about">ℹ️ About Us</a>
+    <a href="#faq" data-page="faq">❔ FAQ</a>
+
+</nav>
+
+<p class="drawer-caption">
+    None Store · Digital World
+</p>
+
+</aside><main><!-- HOME PAGE --><div class="page-section active" id="home"><div class="container hero">
+
+    <div class="badge" lang="en">
+        WELCOME TO NONE STORE
+    </div>
+
+    <h1><span lang="en">Main Menu</span></h1>
 
     <p>
-        به None Store خوش آمدید؛ فضایی برای کشف و معرفی
-        اپلیکیشن‌ها، ابزارهای دیجیتال، فایل‌ها و خدمات آنلاین.
+        به None Store خوش آمدید؛ فضایی برای کشف و معرفی اپلیکیشن‌ها،
+        ابزارهای دیجیتال، فایل‌ها و خدمات آنلاین.
         دسته‌بندی‌های مختلف را بررسی کنید و محتوای موردنیازتان را پیدا کنید.
     </p>
 
     <div class="hero-actions">
-        <a href="#categories" class="btn btn-primary">
+
+        <a href="#categories" class="btn btn-primary ripple-target">
             Explore Categories
         </a>
 
-        <a href="#about" class="btn btn-secondary">
+        <a href="#about" class="btn btn-secondary ripple-target">
             About Store
         </a>
+
     </div>
 
     <div class="search-area">
-        <input type="search" id="searchInput"
-               placeholder="جست‌وجو در دسته‌بندی‌ها..."
-               aria-label="جست‌وجو">
-    </div>
 
-</div>
+        <input
+            type="search"
+            id="searchInput"
+            placeholder="جست‌وجو در دسته‌بندی‌ها..."
+            aria-label="جست‌وجو">
 
-<!-- CATEGORIES -->
-
-<section id="categories">
-<div class="container">
-
-    <div class="section-title">
-        <h2>Explore Categories | دسته‌بندی‌ها</h2>
-        <p>دسترسی سریع به بخش‌های مختلف فروشگاه</p>
-    </div>
-
-    <div class="grid searchable">
-
-        <a href="#apps" class="card">
-            <div class="card-icon">📱</div>
-            <h3>Applications</h3>
-            <p>اپلیکیشن‌ها و نرم‌افزارهای کاربردی برای دستگاه‌های مختلف.</p>
-            <span class="card-link">مشاهده بخش ←</span>
-        </a>
-
-        <a href="#tools" class="card">
-            <div class="card-icon">🛠️</div>
-            <h3>Online Tools</h3>
-            <p>ابزارهای آنلاین برای انجام سریع‌تر فعالیت‌های روزمره.</p>
-            <span class="card-link">مشاهده بخش ←</span>
-        </a>
-
-        <a href="#files" class="card">
-            <div class="card-icon">📁</div>
-            <h3>Files & Resources</h3>
-            <p>فایل‌ها، منابع و محتوای دیجیتال قابل دریافت.</p>
-            <span class="card-link">مشاهده بخش ←</span>
-        </a>
-
-        <a href="#services" class="card">
-            <div class="card-icon">🌐</div>
-            <h3>Digital Services</h3>
-            <p>معرفی سرویس‌ها و خدمات مختلف دنیای دیجیتال.</p>
-            <span class="card-link">مشاهده بخش ←</span>
-        </a>
-
-        <a href="#guides" class="card">
-            <div class="card-icon">📚</div>
-            <h3>Guides & Tutorials</h3>
-            <p>آموزش‌ها و راهنماهای استفاده از فناوری و ابزارها.</p>
-            <span class="card-link">مشاهده بخش ←</span>
-        </a>
-
-        <a href="#updates" class="card">
-            <div class="card-icon">🚀</div>
-            <h3>Latest Updates</h3>
-            <p>آخرین مطالب و امکانات اضافه‌شده به فروشگاه.</p>
-            <span class="card-link">مشاهده بخش ←</span>
-        </a>
+        <p class="no-results" id="noResults">
+            نتیجه‌ای برای جست‌وجوی شما پیدا نشد.
+        </p>
 
     </div>
 
 </div>
-</section>
 
 <!-- FEATURED -->
 
 <section>
-<div class="container">
+    <div class="container">
 
-    <div class="featured">
-        <h2>Discover the Digital World</h2>
-        <p>
-            در None Store تلاش می‌کنیم دسترسی به منابع و ابزارهای دیجیتال
-            را ساده‌تر کنیم. دسته‌بندی‌های مختلف به شما کمک می‌کنند
-            سریع‌تر موضوع موردنظر خود را پیدا کنید.
-        </p>
+        <div class="featured">
+
+            <h2 lang="en">Discover the Digital World</h2>
+
+            <p>
+                در None Store تلاش می‌کنیم دسترسی به منابع و ابزارهای
+                دیجیتال را ساده‌تر کنیم. دسته‌بندی‌های مختلف به شما کمک
+                می‌کنند سریع‌تر موضوع موردنظر خود را پیدا کنید.
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+</div><!-- CATEGORIES PAGE --><section class="page-section" id="categories"><div class="container">
+
+    <div class="section-title">
+
+        <h2>
+            <span lang="en">Explore Categories</span> | دسته‌بندی‌ها
+        </h2>
+
+        <p>دسترسی سریع به بخش‌های مختلف فروشگاه</p>
+
+    </div>
+
+    <div class="grid searchable">
+
+        <a href="#apps" class="card ripple-target">
+
+            <div class="card-icon">📱</div>
+
+            <h3 lang="en">Applications</h3>
+
+            <p>اپلیکیشن‌ها و نرم‌افزارهای کاربردی برای دستگاه‌های مختلف.</p>
+
+            <span class="card-link">مشاهده بخش ←</span>
+
+        </a>
+
+        <a href="#tools" class="card ripple-target">
+
+            <div class="card-icon">🛠️</div>
+
+            <h3 lang="en">Online Tools</h3>
+
+            <p>ابزارهای آنلاین برای انجام سریع‌تر فعالیت‌های روزمره.</p>
+
+            <span class="card-link">مشاهده بخش ←</span>
+
+        </a>
+
+        <a href="#files" class="card ripple-target">
+
+            <div class="card-icon">📁</div>
+
+            <h3 lang="en">Files & Resources</h3>
+
+            <p>فایل‌ها، منابع و محتوای دیجیتال قابل دریافت.</p>
+
+            <span class="card-link">مشاهده بخش ←</span>
+
+        </a>
+
+        <a href="#services" class="card ripple-target">
+
+            <div class="card-icon">🌐</div>
+
+            <h3 lang="en">Digital Services</h3>
+
+            <p>معرفی سرویس‌ها و خدمات مختلف دنیای دیجیتال.</p>
+
+            <span class="card-link">مشاهده بخش ←</span>
+
+        </a>
+
+        <a href="#guides" class="card ripple-target">
+
+            <div class="card-icon">📚</div>
+
+            <h3 lang="en">Guides & Tutorials</h3>
+
+            <p>آموزش‌ها و راهنماهای استفاده از فناوری و ابزارها.</p>
+
+            <span class="card-link">مشاهده بخش ←</span>
+
+        </a>
+
+        <a href="#updates" class="card ripple-target">
+
+            <div class="card-icon">🚀</div>
+
+            <h3 lang="en">Latest Updates</h3>
+
+            <p>آخرین مطالب و امکانات اضافه‌شده به فروشگاه.</p>
+
+            <span class="card-link">مشاهده بخش ←</span>
+
+        </a>
+
     </div>
 
 </div>
-</section>
 
-<!-- APPLICATIONS -->
-
-<section id="apps">
-<div class="container">
+</section><!-- APPLICATIONS PAGE --><section class="page-section" id="apps"><div class="container">
 
     <div class="section-title">
-        <h2>Applications | اپلیکیشن‌ها</h2>
+
+        <h2>
+            <span lang="en">Applications</span> | اپلیکیشن‌ها
+        </h2>
+
         <p>معرفی نرم‌افزارها و برنامه‌های کاربردی</p>
+
     </div>
 
     <div class="grid searchable">
 
         <article class="card">
+
             <div class="card-icon">🤖</div>
-            <h3>Android Apps</h3>
+
+            <h3 lang="en">Android Apps</h3>
+
             <p>معرفی برنامه‌های اندرویدی و امکانات آن‌ها.</p>
+
         </article>
 
         <article class="card">
+
             <div class="card-icon">💻</div>
-            <h3>Desktop Software</h3>
+
+            <h3 lang="en">Desktop Software</h3>
+
             <p>نرم‌افزارهای کامپیوتری و ابزارهای دسکتاپ.</p>
+
         </article>
 
         <article class="card">
+
             <div class="card-icon">⚙️</div>
-            <h3>Productivity Apps</h3>
+
+            <h3 lang="en">Productivity Apps</h3>
+
             <p>برنامه‌های مدیریت کارها و افزایش بهره‌وری.</p>
+
         </article>
 
     </div>
 
 </div>
-</section>
 
-<!-- TOOLS -->
-
-<section id="tools">
-<div class="container">
+</section><!-- TOOLS PAGE --><section class="page-section" id="tools"><div class="container">
 
     <div class="section-title">
-        <h2>Online Tools | ابزارهای آنلاین</h2>
+
+        <h2>
+            <span lang="en">Online Tools</span> | ابزارهای آنلاین
+        </h2>
+
         <p>ابزارهای کاربردی برای فعالیت‌های دیجیتال</p>
+
     </div>
 
     <div class="grid searchable">
 
         <article class="card">
+
             <div class="card-icon">🔄</div>
-            <h3>Converters</h3>
+
+            <h3 lang="en">Converters</h3>
+
             <p>ابزارهای تبدیل فرمت و واحدهای مختلف.</p>
+
         </article>
 
         <article class="card">
+
             <div class="card-icon">🔐</div>
-            <h3>Security Tools</h3>
+
+            <h3 lang="en">Security Tools</h3>
+
             <p>ابزارهای امنیتی و محافظت از اطلاعات.</p>
+
         </article>
 
         <article class="card">
+
             <div class="card-icon">🧮</div>
-            <h3>Calculators</h3>
+
+            <h3 lang="en">Calculators</h3>
+
             <p>ابزارهای محاسباتی و ماشین‌حساب‌های آنلاین.</p>
+
         </article>
 
     </div>
 
 </div>
-</section>
 
-<!-- FILES -->
-
-<section id="files">
-<div class="container">
+</section><!-- FILES PAGE --><section class="page-section" id="files"><div class="container">
 
     <div class="section-title">
-        <h2>Files & Resources | فایل‌ها و منابع</h2>
+
+        <h2>
+            <span lang="en">Files & Resources</span> | فایل‌ها و منابع
+        </h2>
+
         <p>دسترسی به منابع و فایل‌های دیجیتال</p>
+
     </div>
 
     <div class="horizontal-list searchable">
 
         <article class="card">
+
             <div class="card-icon">📦</div>
-            <h3>Digital Files</h3>
+
+            <h3 lang="en">Digital Files</h3>
+
             <p>فایل‌ها و منابع دیجیتال.</p>
+
         </article>
 
         <article class="card">
+
             <div class="card-icon">📝</div>
-            <h3>Documents</h3>
+
+            <h3 lang="en">Documents</h3>
+
             <p>اسناد و منابع متنی.</p>
+
         </article>
 
         <article class="card">
+
             <div class="card-icon">🎨</div>
-            <h3>Design Resources</h3>
+
+            <h3 lang="en">Design Resources</h3>
+
             <p>منابع گرافیکی و طراحی.</p>
+
         </article>
 
     </div>
 
 </div>
-</section>
 
-<!-- SERVICES -->
-
-<section id="services">
-<div class="container">
+</section><!-- SERVICES PAGE --><section class="page-section" id="services"><div class="container">
 
     <div class="section-title">
-        <h2>Digital Services | خدمات دیجیتال</h2>
+
+        <h2>
+            <span lang="en">Digital Services</span> | خدمات دیجیتال
+        </h2>
+
         <p>معرفی سرویس‌ها و امکانات آنلاین</p>
+
     </div>
 
     <div class="grid searchable">
 
         <article class="card">
+
             <div class="card-icon">🌍</div>
-            <h3>Web Services</h3>
+
+            <h3 lang="en">Web Services</h3>
+
             <p>سرویس‌ها و ابزارهای تحت وب.</p>
+
         </article>
 
         <article class="card">
+
             <div class="card-icon">☁️</div>
-            <h3>Cloud Services</h3>
+
+            <h3 lang="en">Cloud Services</h3>
+
             <p>فضای ابری و خدمات میزبانی.</p>
+
         </article>
 
         <article class="card">
+
             <div class="card-icon">🤝</div>
-            <h3>Digital Solutions</h3>
+
+            <h3 lang="en">Digital Solutions</h3>
+
             <p>راهکارهای مختلف در دنیای دیجیتال.</p>
+
         </article>
 
     </div>
 
 </div>
-</section>
 
-<!-- GUIDES -->
-
-<section id="guides">
-<div class="container">
+</section><!-- GUIDES PAGE --><section class="page-section" id="guides"><div class="container">
 
     <div class="section-title">
-        <h2>Guides & Tutorials | آموزش‌ها</h2>
+
+        <h2>
+            <span lang="en">Guides & Tutorials</span> | آموزش‌ها
+        </h2>
+
         <p>مطالب آموزشی و راهنمای استفاده از ابزارها</p>
+
     </div>
 
     <div class="grid searchable">
 
         <article class="card">
+
             <div class="card-icon">📖</div>
-            <h3>Technology Guides</h3>
+
+            <h3 lang="en">Technology Guides</h3>
+
             <p>آموزش فناوری و مفاهیم دیجیتال.</p>
+
         </article>
 
         <article class="card">
+
             <div class="card-icon">👨‍💻</div>
-            <h3>Programming</h3>
+
+            <h3 lang="en">Programming</h3>
+
             <p>برنامه‌نویسی و توسعه وب.</p>
+
         </article>
 
         <article class="card">
+
             <div class="card-icon">💡</div>
-            <h3>Tips & Tricks</h3>
+
+            <h3 lang="en">Tips & Tricks</h3>
+
             <p>ترفندها و نکات کاربردی.</p>
+
         </article>
 
     </div>
 
 </div>
-</section>
 
-<!-- UPDATES -->
-
-<section id="updates">
-<div class="container">
+</section><!-- UPDATES PAGE --><section class="page-section" id="updates"><div class="container">
 
     <div class="section-title">
-        <h2>Latest Updates | آخرین تغییرات</h2>
+
+        <h2>
+            <span lang="en">Latest Updates</span> | آخرین تغییرات
+        </h2>
+
         <p>اطلاعات مربوط به توسعه فروشگاه</p>
+
     </div>
 
     <div class="featured">
-        <h2>Welcome to None Store</h2>
+
+        <h2 lang="en">Welcome to None Store</h2>
+
         <p>
             None Store با هدف معرفی و دسته‌بندی اپلیکیشن‌ها،
             ابزارهای آنلاین، فایل‌ها و خدمات دیجیتال ایجاد شده است.
             این مجموعه به‌مرور توسعه پیدا می‌کند و مطالب جدید
             در دسته‌بندی‌های مربوطه منتشر خواهند شد.
         </p>
+
     </div>
 
 </div>
-</section>
 
-<!-- ABOUT -->
-
-<section id="about">
-<div class="container">
+</section><!-- ABOUT PAGE --><section class="page-section" id="about"><div class="container">
 
     <div class="section-title">
-        <h2>About None Store | درباره ما</h2>
+
+        <h2>
+            <span lang="en">About None Store</span> | درباره ما
+        </h2>
+
     </div>
 
     <div class="featured">
-        <h2>What is None Store?</h2>
+
+        <h2 lang="en">What is None Store?</h2>
+
         <p>
             None Store یک وب‌سایت با محوریت محتوای دیجیتال است.
             هدف آن ایجاد محیطی ساده و منظم برای معرفی اپلیکیشن‌ها،
             نرم‌افزارها، ابزارهای آنلاین، منابع آموزشی و خدمات اینترنتی است.
         </p>
+
         <p>
             طراحی این وب‌سایت با تمرکز بر تجربه کاربری،
             سازگاری با دستگاه‌های مختلف، دسترسی آسان و ساختار
             مناسب برای موتورهای جست‌وجو انجام شده است.
         </p>
+
     </div>
 
 </div>
-</section>
 
-<!-- FAQ -->
-
-<section id="faq">
-<div class="container">
+</section><!-- FAQ PAGE --><section class="page-section" id="faq"><div class="container">
 
     <div class="section-title">
-        <h2>FAQ | سؤالات متداول</h2>
+
+        <h2>
+            <span lang="en">FAQ</span> | سؤالات متداول
+        </h2>
+
     </div>
 
     <div class="faq-item">
+
         <h3>None Store چیست؟</h3>
+
         <p>وب‌سایتی برای معرفی و دسته‌بندی ابزارها و منابع دیجیتال.</p>
+
     </div>
 
     <div class="faq-item">
+
         <h3>آیا سایت برای موبایل بهینه شده است؟</h3>
+
         <p>بله، طراحی واکنش‌گرا برای موبایل، تبلت و دسکتاپ دارد.</p>
+
     </div>
 
     <div class="faq-item">
+
         <h3>چه محتوایی در سایت منتشر می‌شود؟</h3>
+
         <p>اپلیکیشن‌ها، ابزارهای آنلاین، فایل‌ها، خدمات و آموزش‌ها.</p>
+
     </div>
 
 </div>
-</section>
 
-<p class="no-results" id="noResults">
-    نتیجه‌ای برای جست‌وجوی شما پیدا نشد.
-</p>
-
-</main>
-
-<!-- FOOTER -->
-
-<footer>
-<div class="container">
+</section></main><!-- FOOTER --><footer><div class="container">
 
     <div class="footer-grid">
 
         <div>
+
             <h2>None Store</h2>
+
             <p>
                 مرجع معرفی اپلیکیشن‌ها، ابزارها،
                 منابع و خدمات دیجیتال.
             </p>
+
         </div>
 
         <div>
-            <h3>Quick Links</h3>
-            <a href="#home">Main Menu</a>
-            <a href="#categories">Categories</a>
-            <a href="#apps">Applications</a>
-            <a href="#tools">Tools</a>
+
+            <h3 lang="en">Quick Links</h3>
+
+            <a href="#home" data-page="home">Main Menu</a>
+            <a href="#categories" data-page="categories">Categories</a>
+            <a href="#apps" data-page="apps">Applications</a>
+            <a href="#tools" data-page="tools">Tools</a>
+
         </div>
 
         <div>
-            <h3>Information</h3>
-            <a href="#about">About Us</a>
-            <a href="#guides">Guides</a>
-            <a href="#faq">FAQ</a>
+
+            <h3 lang="en">Information</h3>
+
+            <a href="#about" data-page="about">About Us</a>
+            <a href="#guides" data-page="guides">Guides</a>
+            <a href="#faq" data-page="faq">FAQ</a>
+
         </div>
 
     </div>
@@ -1079,73 +1197,250 @@ footer {
     </div>
 
 </div>
-</footer>
 
-<script>
-/* MOBILE DRAWER */
+</footer><script>
+
+/* ELEMENTS */
 
 const menuButton = document.getElementById("menuButton");
 const closeButton = document.getElementById("closeButton");
 const drawer = document.getElementById("mobileDrawer");
 const overlay = document.getElementById("overlay");
 
+const searchInput = document.getElementById("searchInput");
+const noResults = document.getElementById("noResults");
+
+const pages = document.querySelectorAll(".page-section");
+const navigationLinks = document.querySelectorAll("[data-page]");
+
+
+/* MOBILE MENU */
+
 function openMenu() {
+
     drawer.classList.add("show");
     overlay.classList.add("show");
+
     document.body.classList.add("menu-open");
 
     drawer.setAttribute("aria-hidden", "false");
+
     menuButton.setAttribute("aria-expanded", "true");
+
 }
 
 function closeMenu() {
+
     drawer.classList.remove("show");
     overlay.classList.remove("show");
+
     document.body.classList.remove("menu-open");
 
     drawer.setAttribute("aria-hidden", "true");
+
     menuButton.setAttribute("aria-expanded", "false");
+
 }
 
 menuButton.addEventListener("click", openMenu);
+
 closeButton.addEventListener("click", closeMenu);
+
 overlay.addEventListener("click", closeMenu);
 
-drawer.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", closeMenu);
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+        closeMenu();
+    }
+
 });
 
-document.addEventListener("keydown", event => {
-    if (event.key === "Escape") closeMenu();
+
+/* PAGE NAVIGATION */
+
+function showPage(pageId, updateHistory = true) {
+
+    const targetPage = document.getElementById(pageId);
+
+    if (!targetPage || !targetPage.classList.contains("page-section")) {
+        pageId = "home";
+    }
+
+    pages.forEach(page => {
+
+        page.classList.toggle(
+            "active",
+            page.id === pageId
+        );
+
+    });
+
+    navigationLinks.forEach(link => {
+
+        const isActive = link.dataset.page === pageId;
+
+        link.classList.toggle("active", isActive);
+
+        if (isActive) {
+            link.setAttribute("aria-current", "page");
+        } else {
+            link.removeAttribute("aria-current");
+        }
+
+    });
+
+    closeMenu();
+
+    /* Reset search */
+
+    if (searchInput) {
+
+        searchInput.value = "";
+
+        document.querySelectorAll(".searchable .card").forEach(card => {
+            card.style.display = "";
+        });
+
+        noResults.style.display = "none";
+
+    }
+
+    /* Update URL */
+
+    if (updateHistory) {
+
+        const newHash = "#" + pageId;
+
+        if (location.hash !== newHash) {
+            history.pushState(null, "", newHash);
+        }
+
+    }
+
+    /* Scroll to top */
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* NAVIGATION CLICK */
+
+document.addEventListener("click", function(event) {
+
+    const link = event.target.closest('a[href^="#"]');
+
+    if (!link) return;
+
+    const pageId = link.getAttribute("href").substring(1);
+
+    const targetPage = document.getElementById(pageId);
+
+    if (!targetPage || !targetPage.classList.contains("page-section")) {
+        return;
+    }
+
+    event.preventDefault();
+
+    showPage(pageId);
+
 });
+
+
+/* BROWSER BACK / FORWARD */
+
+window.addEventListener("popstate", function() {
+
+    const pageId = location.hash.replace("#", "") || "home";
+
+    showPage(pageId, false);
+
+});
+
+
+/* INITIAL PAGE */
+
+function initializePage() {
+
+    const pageId = location.hash.replace("#", "") || "home";
+
+    showPage(pageId, false);
+
+}
+
+initializePage();
 
 
 /* SEARCH */
 
-const searchInput = document.getElementById("searchInput");
-const cards = document.querySelectorAll(".searchable .card");
-const noResults = document.getElementById("noResults");
-
 searchInput.addEventListener("input", function() {
 
     const query = this.value.trim().toLocaleLowerCase("fa");
+
+    const activePage = document.querySelector(".page-section.active");
+
+    if (!activePage) return;
+
+    const cards = activePage.querySelectorAll(".searchable .card");
+
     let count = 0;
 
     cards.forEach(card => {
 
         const content = card.textContent.toLocaleLowerCase("fa");
+
         const matched = content.includes(query);
 
         card.style.display = matched ? "" : "none";
 
-        if (matched) count++;
+        if (matched) {
+            count++;
+        }
 
     });
 
     noResults.style.display =
         query && count === 0 ? "block" : "none";
-});
-</script>
 
-</body>
+});
+
+
+/* RIPPLE EFFECT */
+
+document.addEventListener("click", function(event) {
+
+    const target = event.target.closest(".ripple-target");
+
+    if (!target) return;
+
+    const rect = target.getBoundingClientRect();
+
+    const size = Math.max(rect.width, rect.height);
+
+    const ripple = document.createElement("span");
+
+    ripple.className = "ripple-effect";
+
+    ripple.style.width = size + "px";
+    ripple.style.height = size + "px";
+
+    ripple.style.left =
+        (event.clientX - rect.left - size / 2) + "px";
+
+    ripple.style.top =
+        (event.clientY - rect.top - size / 2) + "px";
+
+    target.appendChild(ripple);
+
+    ripple.addEventListener("animationend", function() {
+        ripple.remove();
+    });
+
+});
+
+</script></body>
 </html>
