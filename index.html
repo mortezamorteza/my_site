@@ -1,103 +1,59 @@
-<!DOCTYPE html><html lang="fa" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>None Store | Main Menu</title>
+<!DOCTYPE html><html lang="en" dir="ltr"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Aliakbar</title><style>
 
-<meta name="description" content="None Store؛ مرجع معرفی اپلیکیشن‌ها، ابزارهای دیجیتال، فایل‌ها، منابع آموزشی و خدمات آنلاین.">
+/* ========================================
+   01. ROOT & RESET
+======================================== */
 
-<meta name="author" content="None Store">
-<meta name="robots" content="index, follow">
-<meta name="theme-color" content="#080d19">
-
-<link rel="canonical" href="https://my-site-dey.pages.dev/">
-
-<!-- Google Verification -->
-<meta name="google-site-verification" content="_5M07jpz8TCcpwhPqOyxum5WxWnqP2VSJMoVSk7Niig">
-
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="None Store">
-<meta property="og:title" content="None Store | Main Menu">
-<meta property="og:description" content="اپلیکیشن‌ها، ابزارها، فایل‌ها و خدمات دیجیتال در None Store">
-<meta property="og:url" content="https://my-site-dey.pages.dev/">
-<meta property="og:locale" content="fa_IR">
-
-<!-- Twitter -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="None Store | Main Menu">
-<meta name="twitter:description" content="مرجع معرفی اپلیکیشن‌ها، ابزارها، فایل‌ها و خدمات دیجیتال">
-
-<!-- Structured Data: Website & Organization -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": "https://my-site-dey.pages.dev/#website",
-      "url": "https://my-site-dey.pages.dev/",
-      "name": "None Store",
-      "alternateName": [
-        "None Store",
-        "my-site-dey.pages.dev"
-      ],
-      "description": "مرجع معرفی اپلیکیشن‌ها، ابزارها، فایل‌ها، منابع آموزشی و خدمات دیجیتال",
-      "inLanguage": "fa",
-      "publisher": {
-        "@id": "https://my-site-dey.pages.dev/#organization"
-      }
-    },
-    {
-      "@type": "Organization",
-      "@id": "https://my-site-dey.pages.dev/#organization",
-      "name": "None Store",
-      "alternateName": "NoneStore",
-      "url": "https://my-site-dey.pages.dev/"
-    }
-  ]
-}
-</script>
-<style>
 :root {
-    --bg: #080d19;
-    --panel: #101a2b;
+    --bg: #070d15;
+    --panel: #101828;
     --panel2: #142238;
     --border: #24344d;
+
     --primary: #38bdf8;
+
     --text: #f1f5f9;
     --muted: #94a3b8;
+
+    --header-height: 66px;
+    --drawer-width: 290px;
+    --content-width: 1200px;
+
+    --radius: 14px;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
     -webkit-tap-highlight-color: transparent;
 }
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 85px;
 }
 
 body {
+    width: 100%;
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
     background: var(--bg);
     color: var(--text);
-    font-family: Tahoma, Arial, sans-serif;
-    line-height: 1.8;
-    overflow-x: hidden;
+
+    font-family: Arial, sans-serif;
 }
 
 body.menu-open {
     overflow: hidden;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-button, input {
+button,
+input {
     font: inherit;
 }
 
@@ -105,16 +61,345 @@ button {
     cursor: pointer;
 }
 
-.container {
-    width: min(1100px, 92%);
-    margin: auto;
+a {
+    color: inherit;
+    text-decoration: none;
 }
 
-/* PAGE NAVIGATION */
+svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* ========================================
+   02. HEADER
+======================================== */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    width: 100%;
+    height: var(--header-height);
+
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+}
+
+.top {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+    padding: 0 18px;
+}
+
+.top-btn {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    padding: 10px;
+
+    color: var(--text);
+    background: var(--panel2);
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    transition: .2s;
+}
+
+.top-btn:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.logo {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    margin-left: auto;
+
+    color: var(--primary);
+    background: transparent;
+
+    border: none;
+}
+
+
+/* ========================================
+   03. HEADER SEARCH
+======================================== */
+
+.header-search {
+    width: min(360px, 40vw);
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+
+    margin-left: 5px;
+
+    background: var(--panel);
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    overflow: hidden;
+}
+
+.header-search input {
+    width: 100%;
+    height: 100%;
+
+    padding: 0 13px;
+
+    color: var(--text);
+    background: transparent;
+
+    border: none;
+    outline: none;
+
+    font-size: 13px;
+}
+
+.header-search:focus-within {
+    border-color: var(--primary);
+}
+
+
+/* ========================================
+   04. DRAWER OVERLAY
+======================================== */
+
+.overlay {
+    position: fixed;
+    inset: 0;
+
+    z-index: 200;
+
+    background: rgba(0,0,0,.65);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: .3s;
+}
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* ========================================
+   05. DRAWER
+======================================== */
+
+.drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: 201;
+
+    width: min(var(--drawer-width), 86vw);
+    height: 100vh;
+    height: 100dvh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--bg);
+
+    border-right: 1px solid var(--border);
+
+    transform: translateX(-105%);
+    visibility: hidden;
+
+    transition:
+        transform .3s ease,
+        visibility .3s;
+
+    overflow: hidden;
+}
+
+.drawer.show {
+    transform: translateX(0);
+    visibility: visible;
+}
+
+
+/* DRAWER HEADER */
+
+.drawer-header {
+    height: var(--header-height);
+    min-height: var(--header-height);
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 16px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.drawer-title {
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.drawer-title span {
+    color: var(--primary);
+}
+
+.drawer-header .top-btn {
+    margin-left: auto;
+}
+
+
+/* DRAWER BODY */
+
+.drawer-body {
+    flex: 1;
+    min-height: 0;
+
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    padding: 18px 13px 25px;
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+}
+
+.drawer-body::-webkit-scrollbar {
+    width: 4px;
+}
+
+.drawer-body::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 10px;
+}
+
+
+/* DRAWER CAPTIONS */
+
+.drawer-caption {
+    padding: 10px 11px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+
+/* DRAWER LINKS */
+
+.drawer-links {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.drawer-links a {
+    width: 100%;
+    min-height: 47px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+    padding: 9px 12px;
+
+    color: var(--muted);
+
+    border: 1px solid transparent;
+    border-radius: 11px;
+
+    font-size: 13px;
+
+    transition: .2s;
+}
+
+.drawer-links a span {
+    width: 21px;
+    height: 21px;
+
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+}
+
+.drawer-links a:hover,
+.drawer-links a.active {
+    color: var(--primary);
+
+    background: var(--panel2);
+
+    border-color: var(--border);
+}
+
+.drawer-divider {
+    width: 100%;
+    height: 1px;
+
+    margin: 17px 0;
+
+    background: var(--border);
+}
+
+
+/* ========================================
+   06. MAIN LAYOUT
+======================================== */
+
+main {
+    width: 100%;
+    min-height: calc(100vh - var(--header-height));
+}
+
+.container {
+    width: 100%;
+    max-width: var(--content-width);
+
+    margin: 0 auto;
+
+    padding: 25px 30px 40px;
+}
+
+
+/* ========================================
+   07. PAGE NAVIGATION
+======================================== */
 
 .page-section {
     display: none;
-    animation: pageEnter .28s ease;
+
+    animation: pageEnter .25s ease;
 }
 
 .page-section.active {
@@ -124,7 +409,7 @@ button {
 @keyframes pageEnter {
     from {
         opacity: 0;
-        transform: translateY(7px);
+        transform: translateY(8px);
     }
 
     to {
@@ -133,280 +418,225 @@ button {
     }
 }
 
-/* HEADER */
 
-.header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(8,13,25,.96);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid var(--border);
-}
-
-.header-inner {
-    height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo {
-    font-size: 21px;
-    font-weight: bold;
-    direction: ltr;
-    order: 1;
-}
-
-.logo span {
-    color: var(--primary);
-}
-
-.desktop-nav {
-    display: flex;
-    gap: 22px;
-    order: 2;
-}
-
-.desktop-nav a {
-    color: var(--muted);
-    font-size: 13px;
-    transition: color .2s;
-}
-
-.desktop-nav a:hover,
-.desktop-nav a.active {
-    color: var(--primary);
-}
-
-.menu-button {
-    display: none;
-    width: 42px;
-    height: 42px;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    background: var(--panel);
-    color: white;
-    font-size: 23px;
-    order: 3;
-}
-
-/* MOBILE DRAWER */
-
-.overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 200;
-    background: rgba(0,0,0,.65);
-    opacity: 0;
-    visibility: hidden;
-    transition: .25s;
-}
-
-.overlay.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-.drawer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: auto;
-    width: min(82%, 320px);
-    height: 100%;
-    z-index: 201;
-    background: #0d1728;
-    border-right: 1px solid var(--border);
-    transform: translateX(-105%);
-    transition: transform .3s ease;
-    padding: 22px;
-    overflow-y: auto;
-    visibility: hidden;
-}
-
-.drawer.show {
-    transform: translateX(0);
-    visibility: visible;
-}
-
-.drawer-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 22px;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 15px;
-}
-
-.drawer-title {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.drawer-title span {
-    color: var(--primary);
-}
-
-.close-button {
-    background: var(--panel2);
-    border: 1px solid var(--border);
-    color: white;
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    font-size: 20px;
-}
-
-.drawer-links a {
-    display: block;
-    padding: 12px;
-    margin-bottom: 5px;
-    color: var(--muted);
-    border-radius: 10px;
-    font-size: 14px;
-    transition: .2s;
-}
-
-.drawer-links a:hover,
-.drawer-links a.active {
-    color: var(--primary);
-    background: var(--panel2);
-}
-
-.drawer-caption {
-    color: #64748b;
-    font-size: 11px;
-    margin-top: 25px;
-}
+/* ========================================
+   08. TYPOGRAPHY
+======================================== */
 
 /* HERO */
 
+.hero-title {
+    font-size: 40px;
+    line-height: 1.35;
+}
+
+.hero-description {
+    font-size: 13px;
+    line-height: 2;
+}
+
+/* PAGE HEADING */
+
+.page-title {
+    font-size: 27px;
+    line-height: 1.5;
+}
+
+.page-description {
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+/* SECTION */
+
+.section-heading {
+    font-size: 19px;
+}
+
+.section-description {
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* CARDS */
+
+.card-title {
+    font-size: 14px;
+}
+
+.card-description {
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+/* FEATURED */
+
+.feature-title {
+    font-size: 19px;
+}
+
+.feature-description {
+    font-size: 13px;
+    line-height: 2;
+}
+
+
+/* ========================================
+   09. PAGE HEADING
+======================================== */
+
+.page-heading {
+    margin-bottom: 25px;
+}
+
+.page-title {
+    margin-bottom: 7px;
+}
+
+.page-description {
+    color: var(--muted);
+}
+
+
+/* ========================================
+   10. HERO
+======================================== */
+
 .hero {
-    padding: 48px 0 32px;
+    padding: 55px 10px;
+
     text-align: center;
 }
 
 .badge {
     display: inline-block;
+
+    padding: 7px 15px;
+    margin-bottom: 20px;
+
+    color: var(--primary);
+
     background: rgba(56,189,248,.1);
+
     border: 1px solid rgba(56,189,248,.2);
-    color: var(--primary);
-    padding: 5px 15px;
     border-radius: 30px;
+
     font-size: 11px;
-    margin-bottom: 16px;
 }
 
-.hero h1 {
-    font-size: clamp(30px, 6vw, 48px);
-    margin-bottom: 12px;
+.hero-title {
+    margin-bottom: 15px;
 }
 
-.hero h1 span {
+.hero-title span {
     color: var(--primary);
 }
 
-.hero p {
-    color: var(--muted);
-    font-size: 13px;
-    max-width: 650px;
+.hero-description {
+    max-width: 620px;
+
     margin: auto;
-    line-height: 2.2;
+
+    color: var(--muted);
 }
+
+
+/* HERO BUTTONS */
 
 .hero-actions {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-top: 22px;
     flex-wrap: wrap;
+
+    gap: 11px;
+
+    margin-top: 25px;
 }
 
 .btn {
-    display: inline-block;
+    min-height: 42px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
     padding: 10px 20px;
+
     border-radius: 11px;
+
     font-size: 12px;
     font-weight: bold;
+
+    transition: .2s;
 }
 
 .btn-primary {
-    background: var(--primary);
     color: #07111e;
+    background: var(--primary);
 }
 
 .btn-secondary {
+    color: var(--text);
     background: var(--panel);
+
     border: 1px solid var(--border);
-    color: white;
 }
 
-/* SEARCH */
-
-.search-area {
-    max-width: 550px;
-    margin: 25px auto 0;
+.btn:hover {
+    transform: translateY(-2px);
 }
 
-.search-area input {
-    width: 100%;
-    background: var(--panel);
-    color: white;
-    border: 1px solid var(--border);
-    border-radius: 13px;
-    padding: 14px 16px;
-    outline: none;
-    font-size: 13px;
-}
 
-.search-area input:focus {
-    border-color: var(--primary);
-}
-
-.no-results {
-    display: none;
-    text-align: center;
-    padding: 20px;
-    color: var(--muted);
-    font-size: 13px;
-}
-
-/* SECTIONS */
+/* ========================================
+   11. SECTIONS
+======================================== */
 
 section {
-    padding: 27px 0;
+    padding: 25px 0;
 }
 
 .section-title {
-    margin-bottom: 17px;
+    margin-bottom: 18px;
 }
 
-.section-title h2 {
-    font-size: 19px;
+.section-heading {
+    margin-bottom: 6px;
 }
 
-.section-title p {
+.section-description {
     color: var(--muted);
-    font-size: 11px;
-    margin-top: 3px;
 }
 
-/* CATEGORY GRID */
+
+/* ========================================
+   12. GRID
+======================================== */
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 13px;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+
+    gap: 16px;
 }
 
+
+/* ========================================
+   13. CARDS
+======================================== */
+
 .card {
+    min-width: 0;
+
+    padding: 20px;
+
     background: var(--panel);
+
     border: 1px solid var(--border);
     border-radius: 15px;
-    padding: 17px;
-    min-width: 0;
-    transition: border-color .2s, transform .2s;
+
+    transition: .2s;
 }
 
 .card:hover {
@@ -415,140 +645,198 @@ section {
 }
 
 .card-icon {
-    width: 42px;
-    height: 42px;
+    width: 45px;
+    height: 45px;
+
     display: grid;
     place-items: center;
+
+    margin-bottom: 13px;
+
     background: rgba(56,189,248,.1);
+
     border-radius: 12px;
-    font-size: 21px;
-    margin-bottom: 10px;
+
+    font-size: 22px;
 }
 
-.card h3 {
-    font-size: 14px;
-    margin-bottom: 5px;
+.card-title {
+    margin-bottom: 8px;
 }
 
-.card p {
+.card-description {
     color: var(--muted);
-    font-size: 11px;
-    line-height: 2;
 }
 
 .card-link {
     display: inline-block;
-    margin-top: 9px;
-    font-size: 11px;
+
+    margin-top: 13px;
+
     color: var(--primary);
+
+    font-size: 12px;
 }
 
-/* FEATURED */
+
+/* ========================================
+   14. FEATURED
+======================================== */
 
 .featured {
-    background: linear-gradient(130deg,#142c45,#101a2b);
+    padding: 25px;
+
+    background:
+        linear-gradient(130deg, #142c45, #101a2b);
+
     border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 22px;
+    border-radius: 17px;
 }
 
-.featured h2 {
-    font-size: 18px;
-    margin-bottom: 8px;
+.feature-title {
+    margin-bottom: 10px;
 }
 
-.featured p {
+.feature-description {
+    max-width: 700px;
+
     color: var(--muted);
-    font-size: 12px;
-    line-height: 2.2;
-    margin-bottom: 8px;
 }
 
-/* HORIZONTAL CONTENT */
 
-.horizontal-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 13px;
-}
-
-/* FAQ */
+/* ========================================
+   15. FAQ
+======================================== */
 
 .faq-item {
+    padding: 17px;
+    margin-bottom: 11px;
+
     background: var(--panel);
+
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 14px;
-    margin-bottom: 9px;
 }
 
 .faq-item h3 {
-    font-size: 13px;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    font-size: 14px;
 }
 
 .faq-item p {
-    font-size: 11px;
     color: var(--muted);
+
+    font-size: 12px;
+    line-height: 1.9;
 }
 
-/* FOOTER */
+
+/* ========================================
+   16. SEARCH
+======================================== */
+
+.no-results {
+    display: none;
+
+    padding: 25px 10px;
+
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* ========================================
+   17. FOOTER
+======================================== */
 
 footer {
-    border-top: 1px solid var(--border);
+    width: 100%;
+
+    margin-top: 35px;
+
     background: #070b14;
-    margin-top: 25px;
-    padding: 30px 0 18px;
+
+    border-top: 1px solid var(--border);
+}
+
+.footer-container {
+    width: 100%;
+    max-width: var(--content-width);
+
+    margin: auto;
+
+    padding: 30px 30px 18px;
 }
 
 .footer-grid {
     display: grid;
+
     grid-template-columns: 2fr 1fr 1fr;
-    gap: 25px;
+
+    gap: 30px;
 }
 
-.footer-grid h2,
-.footer-grid h3 {
+.footer-title {
+    margin-bottom: 13px;
+
     font-size: 14px;
-    margin-bottom: 10px;
 }
 
-.footer-grid p,
-.footer-grid a {
-    color: var(--muted);
-    font-size: 11px;
+.footer-text,
+.footer-link {
     display: block;
-    margin-bottom: 7px;
+
+    margin-bottom: 10px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+    line-height: 1.8;
 }
 
-.footer-grid a:hover,
-.footer-grid a.active {
+.footer-link:hover {
     color: var(--primary);
 }
 
 .copyright {
+    margin-top: 25px;
+    padding-top: 17px;
+
     border-top: 1px solid var(--border);
+
     text-align: center;
-    padding-top: 15px;
-    margin-top: 22px;
-    font-size: 10px;
+
     color: #64748b;
+
+    font-size: 11px;
 }
 
-/* RIPPLE EFFECT */
+
+/* ========================================
+   18. RIPPLE
+======================================== */
 
 .ripple-target {
     position: relative;
+
     overflow: hidden;
     isolation: isolate;
 }
 
 .ripple-effect {
     position: absolute;
+
     border-radius: 50%;
+
     background: rgba(56,189,248,.3);
+
     transform: scale(0);
+
     animation: rippleAnimation .55s linear;
+
     pointer-events: none;
     z-index: 5;
 }
@@ -560,66 +848,301 @@ footer {
     }
 }
 
-/* MOBILE */
 
-@media(max-width:760px) {
+/* ========================================
+   19. TABLET
+   601px - 900px
+======================================== */
 
-    .desktop-nav {
-        display: none;
+@media (min-width: 601px) and (max-width: 900px) {
+
+    :root {
+        --content-width: 100%;
+        --header-height: 64px;
+        --drawer-width: 280px;
     }
 
-    .menu-button {
-        display: block;
+    .container {
+        padding: 24px 25px 35px;
     }
 
     .hero {
-        padding-top: 35px;
+        padding: 45px 10px;
     }
 
-    .grid,
-    .horizontal-list {
-        grid-template-columns: repeat(2, minmax(0,1fr));
-        gap: 9px;
+    .hero-title {
+        font-size: 34px;
+    }
+
+    .page-title {
+        font-size: 25px;
+    }
+
+    .section-heading {
+        font-size: 18px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
     }
 
     .card {
-        padding: 13px;
+        padding: 18px;
     }
 
-    .card h3 {
-        font-size: 12px;
-    }
-
-    .card p {
-        font-size: 10px;
-    }
-
-    section {
-        padding: 22px 0;
+    .footer-container {
+        padding: 28px 25px 18px;
     }
 
     .footer-grid {
         grid-template-columns: 1fr 1fr;
+        gap: 25px;
     }
 
     .footer-grid > div:first-child {
         grid-column: 1 / -1;
     }
+
 }
 
-@media(max-width:370px) {
 
-    .grid,
-    .horizontal-list {
+/* ========================================
+   20. MOBILE
+   601px AND BELOW
+======================================== */
+
+@media (max-width: 600px) {
+
+    :root {
+        --header-height: 60px;
+        --drawer-width: 300px;
+    }
+
+    /* HEADER */
+
+    .top {
+        padding: 0 12px;
+        gap: 9px;
+    }
+
+    .top-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .header-search {
+        width: min(220px, 42vw);
+        height: 40px;
+    }
+
+    .header-search input {
+        font-size: 12px;
+    }
+
+    .logo {
+        width: 38px;
+        height: 38px;
+    }
+
+    /* CONTENT */
+
+    .container {
+        padding: 17px 15px 30px;
+    }
+
+    /* HERO */
+
+    .hero {
+        padding: 35px 5px;
+    }
+
+    .hero-title {
+        font-size: 29px;
+    }
+
+    .hero-description {
+        font-size: 12px;
+    }
+
+    /* PAGE */
+
+    .page-heading {
+        margin-bottom: 20px;
+    }
+
+    .page-title {
+        font-size: 23px;
+    }
+
+    .page-description {
+        font-size: 12px;
+    }
+
+    /* SECTIONS */
+
+    section {
+        padding: 20px 0;
+    }
+
+    .section-heading {
+        font-size: 17px;
+    }
+
+    .section-description {
+        font-size: 11px;
+    }
+
+    /* GRID */
+
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 11px;
+    }
+
+    /* CARDS */
+
+    .card {
+        padding: 14px;
+    }
+
+    .card-icon {
+        width: 40px;
+        height: 40px;
+
+        font-size: 20px;
+    }
+
+    .card-title {
+        font-size: 13px;
+    }
+
+    .card-description {
+        font-size: 11px;
+    }
+
+    .card-link {
+        font-size: 11px;
+    }
+
+    /* FEATURED */
+
+    .featured {
+        padding: 19px;
+    }
+
+    .feature-title {
+        font-size: 17px;
+    }
+
+    .feature-description {
+        font-size: 12px;
+    }
+
+    /* FOOTER */
+
+    .footer-container {
+        padding: 25px 15px 17px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .footer-grid > div:first-child {
+        grid-column: 1 / -1;
+    }
+
+    .footer-title {
+        font-size: 13px;
+    }
+
+    .footer-text,
+    .footer-link {
+        font-size: 11px;
+    }
+
+}
+
+
+/* ========================================
+   21. SMALL MOBILE
+   370px AND BELOW
+======================================== */
+
+@media (max-width: 370px) {
+
+    .top {
+        gap: 7px;
+    }
+
+    .header-search {
+        width: 38vw;
+    }
+
+    .grid {
         grid-template-columns: 1fr;
     }
 
-    .hero h1 {
-        font-size: 29px;
+    .hero-title {
+        font-size: 27px;
     }
+
+    .hero-actions {
+        gap: 8px;
+    }
+
+    .btn {
+        padding: 10px 15px;
+    }
+
+    .footer-grid {
+        gap: 15px;
+    }
+
 }
 
-@media(prefers-reduced-motion:reduce) {
+
+/* ========================================
+   22. LARGE DESKTOP
+   1200px AND ABOVE
+======================================== */
+
+@media (min-width: 1200px) {
+
+    :root {
+        --content-width: 1200px;
+    }
+
+    .container {
+        padding-top: 30px;
+    }
+
+    .hero {
+        padding: 60px 10px;
+    }
+
+    .hero-title {
+        font-size: 42px;
+    }
+
+    .page-title {
+        font-size: 28px;
+    }
+
+    .grid {
+        gap: 18px;
+    }
+
+}
+
+
+/* ========================================
+   23. REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
 
     *,
     *::before,
@@ -628,617 +1151,774 @@ footer {
         animation-duration: .01ms !important;
         transition-duration: .01ms !important;
     }
+
 }
-</style></head><body><!-- HEADER --><header class="header">
-    <div class="container header-inner">    <a href="#home" class="logo ripple-target">
-        None <span>Store</span>
-    </a>
 
-    <nav class="desktop-nav" aria-label="منوی اصلی">
+@media (min-width: 901px) {
+    .feature-title {
+        font-size: 15px;
+    }
 
-        <a href="#home" data-page="home">Main Menu</a>
-        <a href="#categories" data-page="categories">Categories</a>
-        <a href="#apps" data-page="apps">Applications</a>
-        <a href="#tools" data-page="tools">Tools</a>
-        <a href="#about" data-page="about">About</a>
+    .feature-description {
+        font-size: 11px;
+    }
+}
+
+</style></head><body><!-- ========================================
+     HEADER
+======================================== --><header><div class="top">
+
+    <button class="top-btn ripple-target"
+            id="menuButton"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobileDrawer">
+
+        <svg viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2"
+             stroke-linecap="round">
+
+            <path d="M4 5h16"/>
+            <path d="M4 12h16"/>
+            <path d="M4 19h16"/>
+
+        </svg>
+
+    </button>
+
+
+    <div class="header-search">
+
+        <input type="search"
+               id="searchInput"
+               placeholder="Search..."
+               autocomplete="off"
+               aria-label="Search current page">
+
+    </div>
+
+
+    <button class="logo"
+            id="homeButton"
+            aria-label="Home">
+
+        <svg viewBox="0 0 48 44"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="1.5"
+             stroke-linecap="round">
+
+            <path d="M16.5 16.5L22.5 23"/>
+            <path d="M22.5 16.5L16.5 23"/>
+
+            <circle cx="31" cy="19.5" r="4"/>
+
+            <path d="M16 32 Q25 26 34 32"/>
+
+        </svg>
+
+    </button>
+
+</div>
+
+</header><!-- ========================================
+     OVERLAY
+======================================== --><div class="overlay" id="overlay"></div><!-- ========================================
+     DRAWER
+======================================== --><aside class="drawer"
+       id="mobileDrawer"
+       aria-label="Navigation menu"
+       aria-hidden="true"><div class="drawer-header">
+
+    <div class="drawer-title">
+        Dash <span>Board</span>
+    </div>
+
+
+    <button class="top-btn ripple-target"
+            id="closeButton"
+            aria-label="Close menu">
+
+        <svg viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2"
+             stroke-linecap="round">
+
+            <path d="M19 5L5 19"/>
+            <path d="M5 5l14 14"/>
+
+        </svg>
+
+    </button>
+
+</div>
+
+
+<div class="drawer-body">
+
+
+    <div class="drawer-caption">
+        MAIN MENU
+    </div>
+
+
+    <nav class="drawer-links">
+
+        <a href="#home" data-page="home" class="active">
+            <span>⌂</span>
+            Home
+        </a>
+
+        <a href="#apps" data-page="apps">
+            <span>▦</span>
+            Applications
+        </a>
+
+        <a href="#tools" data-page="tools">
+            <span>⚒</span>
+            Tools
+        </a>
+
+        <a href="#videos" data-page="videos">
+            <span>▣</span>
+            Videos
+        </a>
+
+        <a href="#files" data-page="files">
+            <span>▤</span>
+            Files
+        </a>
 
     </nav>
 
-    <button
-        class="menu-button ripple-target"
-        id="menuButton"
-        aria-label="باز کردن منو"
-        aria-expanded="false"
-        aria-controls="mobileDrawer">
-        ☰
-    </button>
+
+    <div class="drawer-divider"></div>
+
+
+    <div class="drawer-caption">
+        PERSONAL
+    </div>
+
+
+    <nav class="drawer-links">
+
+        <a href="#account" data-page="account">
+            <span>♙</span>
+            Account
+        </a>
+
+        <a href="#settings" data-page="settings">
+            <span>⚙</span>
+            Settings
+        </a>
+
+    </nav>
+
+
+    <div class="drawer-divider"></div>
+
+
+    <div class="drawer-caption">
+        INFORMATION
+    </div>
+
+
+    <nav class="drawer-links">
+
+        <a href="#about" data-page="about">
+            <span>ⓘ</span>
+            About
+        </a>
+
+        <a href="#faq" data-page="faq">
+            <span>?</span>
+            FAQ
+        </a>
+
+    </nav>
 
 </div>
 
-</header><!-- MOBILE DRAWER --><div class="overlay" id="overlay"></div><aside
-    class="drawer"
-    id="mobileDrawer"
-    aria-label="منوی موبایل"
-    aria-hidden="true"><div class="drawer-header">
+</aside><!-- ========================================
+     MAIN CONTENT
+======================================== --><main><div class="container"><!-- ========================================
+     HOME PAGE
+======================================== --><div class="page-section active" id="home"><div class="hero">
 
-    <div class="drawer-title">
-        None <span>Store</span>
-    </div>
+    <span class="badge">
+        WELCOME TO ALIAKBAR
+    </span>
 
-    <button
-        class="close-button ripple-target"
-        id="closeButton"
-        aria-label="بستن منو">
-        ×
-    </button>
 
-</div>
+    <h1 class="hero-title">
+        Discover the <span>Digital World</span>
+    </h1>
 
-<nav class="drawer-links">
 
-    <a href="#home" data-page="home">🏠 Main Menu</a>
-    <a href="#categories" data-page="categories">📂 Categories</a>
-    <a href="#apps" data-page="apps">📱 Applications</a>
-    <a href="#tools" data-page="tools">🛠 Online Tools</a>
-    <a href="#files" data-page="files">📁 Files & Resources</a>
-    <a href="#services" data-page="services">🌐 Digital Services</a>
-    <a href="#guides" data-page="guides">📚 Guides</a>
-    <a href="#updates" data-page="updates">🚀 Updates</a>
-    <a href="#about" data-page="about">ℹ️ About Us</a>
-    <a href="#faq" data-page="faq">❔ FAQ</a>
-
-</nav>
-
-<p class="drawer-caption">
-    None Store · Digital World
-</p>
-
-</aside><main><!-- HOME PAGE --><div class="page-section active" id="home"><div class="container hero">
-
-    <div class="badge" lang="en">
-        WELCOME TO NONE STORE
-    </div>
-
-    <h1><span lang="en">Main Menu</span></h1>
-
-    <p>
-        به None Store خوش آمدید؛ فضایی برای کشف و معرفی اپلیکیشن‌ها،
-        ابزارهای دیجیتال، فایل‌ها و خدمات آنلاین.
-        دسته‌بندی‌های مختلف را بررسی کنید و محتوای موردنیازتان را پیدا کنید.
+    <p class="hero-description">
+        Explore applications, digital tools, useful resources
+        and everything you need in one place.
     </p>
+
 
     <div class="hero-actions">
 
-        <a href="#categories" class="btn btn-primary ripple-target">
-            Explore Categories
+        <a href="#apps"
+           data-page="apps"
+           class="btn btn-primary ripple-target">
+
+            Explore Apps
+
         </a>
 
-        <a href="#about" class="btn btn-secondary ripple-target">
-            About Store
+
+        <a href="#about"
+           data-page="about"
+           class="btn btn-secondary ripple-target">
+
+            Learn More
+
         </a>
-
-    </div>
-
-    <div class="search-area">
-
-        <input
-            type="search"
-            id="searchInput"
-            placeholder="جست‌وجو در دسته‌بندی‌ها..."
-            aria-label="جست‌وجو">
-
-        <p class="no-results" id="noResults">
-            نتیجه‌ای برای جست‌وجوی شما پیدا نشد.
-        </p>
 
     </div>
 
 </div>
 
-<!-- FEATURED -->
 
 <section>
-    <div class="container">
-
-        <div class="featured">
-
-            <h2 lang="en">Discover the Digital World</h2>
-
-            <p>
-                در None Store تلاش می‌کنیم دسترسی به منابع و ابزارهای
-                دیجیتال را ساده‌تر کنیم. دسته‌بندی‌های مختلف به شما کمک
-                می‌کنند سریع‌تر موضوع موردنظر خود را پیدا کنید.
-            </p>
-
-        </div>
-
-    </div>
-</section>
-
-</div><!-- CATEGORIES PAGE --><section class="page-section" id="categories"><div class="container">
 
     <div class="section-title">
 
-        <h2>
-            <span lang="en">Explore Categories</span> | دسته‌بندی‌ها
+        <h2 class="section-heading">
+            Explore Categories
         </h2>
 
-        <p>دسترسی سریع به بخش‌های مختلف فروشگاه</p>
+        <p class="section-description">
+            Discover different sections of the platform.
+        </p>
 
     </div>
 
+
     <div class="grid searchable">
 
-        <a href="#apps" class="card ripple-target">
+
+        <a href="#apps"
+           data-page="apps"
+           class="card ripple-target">
 
             <div class="card-icon">📱</div>
 
-            <h3 lang="en">Applications</h3>
+            <h3 class="card-title">Applications</h3>
 
-            <p>اپلیکیشن‌ها و نرم‌افزارهای کاربردی برای دستگاه‌های مختلف.</p>
+            <p class="card-description">
+                Discover useful Android and desktop applications.
+            </p>
 
-            <span class="card-link">مشاهده بخش ←</span>
+            <span class="card-link">Explore →</span>
 
         </a>
 
-        <a href="#tools" class="card ripple-target">
+
+        <a href="#tools"
+           data-page="tools"
+           class="card ripple-target">
 
             <div class="card-icon">🛠️</div>
 
-            <h3 lang="en">Online Tools</h3>
+            <h3 class="card-title">Digital Tools</h3>
 
-            <p>ابزارهای آنلاین برای انجام سریع‌تر فعالیت‌های روزمره.</p>
+            <p class="card-description">
+                Useful online tools and digital utilities.
+            </p>
 
-            <span class="card-link">مشاهده بخش ←</span>
+            <span class="card-link">Explore →</span>
 
         </a>
 
-        <a href="#files" class="card ripple-target">
+
+        <a href="#videos"
+           data-page="videos"
+           class="card ripple-target">
+
+            <div class="card-icon">🎬</div>
+
+            <h3 class="card-title">Videos</h3>
+
+            <p class="card-description">
+                Educational videos and useful tutorials.
+            </p>
+
+            <span class="card-link">Explore →</span>
+
+        </a>
+
+
+        <a href="#files"
+           data-page="files"
+           class="card ripple-target">
 
             <div class="card-icon">📁</div>
 
-            <h3 lang="en">Files & Resources</h3>
+            <h3 class="card-title">Files</h3>
 
-            <p>فایل‌ها، منابع و محتوای دیجیتال قابل دریافت.</p>
+            <p class="card-description">
+                Access downloadable resources and documents.
+            </p>
 
-            <span class="card-link">مشاهده بخش ←</span>
-
-        </a>
-
-        <a href="#services" class="card ripple-target">
-
-            <div class="card-icon">🌐</div>
-
-            <h3 lang="en">Digital Services</h3>
-
-            <p>معرفی سرویس‌ها و خدمات مختلف دنیای دیجیتال.</p>
-
-            <span class="card-link">مشاهده بخش ←</span>
+            <span class="card-link">Explore →</span>
 
         </a>
 
-        <a href="#guides" class="card ripple-target">
-
-            <div class="card-icon">📚</div>
-
-            <h3 lang="en">Guides & Tutorials</h3>
-
-            <p>آموزش‌ها و راهنماهای استفاده از فناوری و ابزارها.</p>
-
-            <span class="card-link">مشاهده بخش ←</span>
-
-        </a>
-
-        <a href="#updates" class="card ripple-target">
-
-            <div class="card-icon">🚀</div>
-
-            <h3 lang="en">Latest Updates</h3>
-
-            <p>آخرین مطالب و امکانات اضافه‌شده به فروشگاه.</p>
-
-            <span class="card-link">مشاهده بخش ←</span>
-
-        </a>
 
     </div>
 
-</div>
+</section>
 
-</section><!-- APPLICATIONS PAGE --><section class="page-section" id="apps"><div class="container">
 
-    <div class="section-title">
-
-        <h2>
-            <span lang="en">Applications</span> | اپلیکیشن‌ها
-        </h2>
-
-        <p>معرفی نرم‌افزارها و برنامه‌های کاربردی</p>
-
-    </div>
-
-    <div class="grid searchable">
-
-        <article class="card">
-
-            <div class="card-icon">🤖</div>
-
-            <h3 lang="en">Android Apps</h3>
-
-            <p>معرفی برنامه‌های اندرویدی و امکانات آن‌ها.</p>
-
-        </article>
-
-        <article class="card">
-
-            <div class="card-icon">💻</div>
-
-            <h3 lang="en">Desktop Software</h3>
-
-            <p>نرم‌افزارهای کامپیوتری و ابزارهای دسکتاپ.</p>
-
-        </article>
-
-        <article class="card">
-
-            <div class="card-icon">⚙️</div>
-
-            <h3 lang="en">Productivity Apps</h3>
-
-            <p>برنامه‌های مدیریت کارها و افزایش بهره‌وری.</p>
-
-        </article>
-
-    </div>
-
-</div>
-
-</section><!-- TOOLS PAGE --><section class="page-section" id="tools"><div class="container">
-
-    <div class="section-title">
-
-        <h2>
-            <span lang="en">Online Tools</span> | ابزارهای آنلاین
-        </h2>
-
-        <p>ابزارهای کاربردی برای فعالیت‌های دیجیتال</p>
-
-    </div>
-
-    <div class="grid searchable">
-
-        <article class="card">
-
-            <div class="card-icon">🔄</div>
-
-            <h3 lang="en">Converters</h3>
-
-            <p>ابزارهای تبدیل فرمت و واحدهای مختلف.</p>
-
-        </article>
-
-        <article class="card">
-
-            <div class="card-icon">🔐</div>
-
-            <h3 lang="en">Security Tools</h3>
-
-            <p>ابزارهای امنیتی و محافظت از اطلاعات.</p>
-
-        </article>
-
-        <article class="card">
-
-            <div class="card-icon">🧮</div>
-
-            <h3 lang="en">Calculators</h3>
-
-            <p>ابزارهای محاسباتی و ماشین‌حساب‌های آنلاین.</p>
-
-        </article>
-
-    </div>
-
-</div>
-
-</section><!-- FILES PAGE --><section class="page-section" id="files"><div class="container">
-
-    <div class="section-title">
-
-        <h2>
-            <span lang="en">Files & Resources</span> | فایل‌ها و منابع
-        </h2>
-
-        <p>دسترسی به منابع و فایل‌های دیجیتال</p>
-
-    </div>
-
-    <div class="horizontal-list searchable">
-
-        <article class="card">
-
-            <div class="card-icon">📦</div>
-
-            <h3 lang="en">Digital Files</h3>
-
-            <p>فایل‌ها و منابع دیجیتال.</p>
-
-        </article>
-
-        <article class="card">
-
-            <div class="card-icon">📝</div>
-
-            <h3 lang="en">Documents</h3>
-
-            <p>اسناد و منابع متنی.</p>
-
-        </article>
-
-        <article class="card">
-
-            <div class="card-icon">🎨</div>
-
-            <h3 lang="en">Design Resources</h3>
-
-            <p>منابع گرافیکی و طراحی.</p>
-
-        </article>
-
-    </div>
-
-</div>
-
-</section><!-- SERVICES PAGE --><section class="page-section" id="services"><div class="container">
-
-    <div class="section-title">
-
-        <h2>
-            <span lang="en">Digital Services</span> | خدمات دیجیتال
-        </h2>
-
-        <p>معرفی سرویس‌ها و امکانات آنلاین</p>
-
-    </div>
-
-    <div class="grid searchable">
-
-        <article class="card">
-
-            <div class="card-icon">🌍</div>
-
-            <h3 lang="en">Web Services</h3>
-
-            <p>سرویس‌ها و ابزارهای تحت وب.</p>
-
-        </article>
-
-        <article class="card">
-
-            <div class="card-icon">☁️</div>
-
-            <h3 lang="en">Cloud Services</h3>
-
-            <p>فضای ابری و خدمات میزبانی.</p>
-
-        </article>
-
-        <article class="card">
-
-            <div class="card-icon">🤝</div>
-
-            <h3 lang="en">Digital Solutions</h3>
-
-            <p>راهکارهای مختلف در دنیای دیجیتال.</p>
-
-        </article>
-
-    </div>
-
-</div>
-
-</section><!-- GUIDES PAGE --><section class="page-section" id="guides"><div class="container">
-
-    <div class="section-title">
-
-        <h2>
-            <span lang="en">Guides & Tutorials</span> | آموزش‌ها
-        </h2>
-
-        <p>مطالب آموزشی و راهنمای استفاده از ابزارها</p>
-
-    </div>
-
-    <div class="grid searchable">
-
-        <article class="card">
-
-            <div class="card-icon">📖</div>
-
-            <h3 lang="en">Technology Guides</h3>
-
-            <p>آموزش فناوری و مفاهیم دیجیتال.</p>
-
-        </article>
-
-        <article class="card">
-
-            <div class="card-icon">👨‍💻</div>
-
-            <h3 lang="en">Programming</h3>
-
-            <p>برنامه‌نویسی و توسعه وب.</p>
-
-        </article>
-
-        <article class="card">
-
-            <div class="card-icon">💡</div>
-
-            <h3 lang="en">Tips & Tricks</h3>
-
-            <p>ترفندها و نکات کاربردی.</p>
-
-        </article>
-
-    </div>
-
-</div>
-
-</section><!-- UPDATES PAGE --><section class="page-section" id="updates"><div class="container">
-
-    <div class="section-title">
-
-        <h2>
-            <span lang="en">Latest Updates</span> | آخرین تغییرات
-        </h2>
-
-        <p>اطلاعات مربوط به توسعه فروشگاه</p>
-
-    </div>
+<section>
 
     <div class="featured">
 
-        <h2 lang="en">Welcome to None Store</h2>
-
-        <p>
-            None Store با هدف معرفی و دسته‌بندی اپلیکیشن‌ها،
-            ابزارهای آنلاین، فایل‌ها و خدمات دیجیتال ایجاد شده است.
-            این مجموعه به‌مرور توسعه پیدا می‌کند و مطالب جدید
-            در دسته‌بندی‌های مربوطه منتشر خواهند شد.
-        </p>
-
-    </div>
-
-</div>
-
-</section><!-- ABOUT PAGE --><section class="page-section" id="about"><div class="container">
-
-    <div class="section-title">
-
-        <h2>
-            <span lang="en">About None Store</span> | درباره ما
+        <h2 class="feature-title">
+            Welcome to the Dashboard
         </h2>
 
-    </div>
-
-    <div class="featured">
-
-        <h2 lang="en">What is None Store?</h2>
-
-        <p>
-            None Store یک وب‌سایت با محوریت محتوای دیجیتال است.
-            هدف آن ایجاد محیطی ساده و منظم برای معرفی اپلیکیشن‌ها،
-            نرم‌افزارها، ابزارهای آنلاین، منابع آموزشی و خدمات اینترنتی است.
-        </p>
-
-        <p>
-            طراحی این وب‌سایت با تمرکز بر تجربه کاربری،
-            سازگاری با دستگاه‌های مختلف، دسترسی آسان و ساختار
-            مناسب برای موتورهای جست‌وجو انجام شده است.
+        <p class="feature-description">
+            This is your central place for discovering
+            applications, tools, resources and digital content.
+            Explore the navigation menu to access different pages.
         </p>
 
     </div>
 
-</div>
+</section>
 
-</section><!-- FAQ PAGE --><section class="page-section" id="faq"><div class="container">
+</div><!-- ========================================
+     APPLICATIONS PAGE
+======================================== --><div class="page-section" id="apps"><div class="page-heading">
 
-    <div class="section-title">
+    <h1 class="page-title">Applications</h1>
 
-        <h2>
-            <span lang="en">FAQ</span> | سؤالات متداول
-        </h2>
-
-    </div>
-
-    <div class="faq-item">
-
-        <h3>None Store چیست؟</h3>
-
-        <p>وب‌سایتی برای معرفی و دسته‌بندی ابزارها و منابع دیجیتال.</p>
-
-    </div>
-
-    <div class="faq-item">
-
-        <h3>آیا سایت برای موبایل بهینه شده است؟</h3>
-
-        <p>بله، طراحی واکنش‌گرا برای موبایل، تبلت و دسکتاپ دارد.</p>
-
-    </div>
-
-    <div class="faq-item">
-
-        <h3>چه محتوایی در سایت منتشر می‌شود؟</h3>
-
-        <p>اپلیکیشن‌ها، ابزارهای آنلاین، فایل‌ها، خدمات و آموزش‌ها.</p>
-
-    </div>
+    <p class="page-description">
+        Explore applications and software.
+    </p>
 
 </div>
 
-</section></main><!-- FOOTER --><footer><div class="container">
 
-    <div class="footer-grid">
+<section>
 
-        <div>
+    <div class="grid searchable">
 
-            <h2>None Store</h2>
 
-            <p>
-                مرجع معرفی اپلیکیشن‌ها، ابزارها،
-                منابع و خدمات دیجیتال.
+        <div class="card">
+
+            <div class="card-icon">📱</div>
+
+            <h3 class="card-title">Android Apps</h3>
+
+            <p class="card-description">
+                Applications for Android devices.
             </p>
 
         </div>
 
-        <div>
 
-            <h3 lang="en">Quick Links</h3>
+        <div class="card">
 
-            <a href="#home" data-page="home">Main Menu</a>
-            <a href="#categories" data-page="categories">Categories</a>
-            <a href="#apps" data-page="apps">Applications</a>
-            <a href="#tools" data-page="tools">Tools</a>
+            <div class="card-icon">💻</div>
 
-        </div>
+            <h3 class="card-title">Desktop Apps</h3>
 
-        <div>
-
-            <h3 lang="en">Information</h3>
-
-            <a href="#about" data-page="about">About Us</a>
-            <a href="#guides" data-page="guides">Guides</a>
-            <a href="#faq" data-page="faq">FAQ</a>
+            <p class="card-description">
+                Software for desktop computers.
+            </p>
 
         </div>
 
+
+        <div class="card">
+
+            <div class="card-icon">🌐</div>
+
+            <h3 class="card-title">Web Apps</h3>
+
+            <p class="card-description">
+                Useful browser-based applications.
+            </p>
+
+        </div>
+
+
     </div>
 
-    <div class="copyright">
-        © 2026 None Store. All Rights Reserved.
-    </div>
+</section>
+
+</div><!-- ========================================
+     TOOLS PAGE
+======================================== --><div class="page-section" id="tools"><div class="page-heading">
+
+    <h1 class="page-title">Digital Tools</h1>
+
+    <p class="page-description">
+        Useful tools and online services.
+    </p>
 
 </div>
 
-</footer><script>
 
-/* ELEMENTS */
+<section>
+
+    <div class="grid searchable">
+
+
+        <div class="card">
+
+            <div class="card-icon">🔍</div>
+
+            <h3 class="card-title">Search Tools</h3>
+
+            <p class="card-description">
+                Tools for searching and discovering information.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">🎨</div>
+
+            <h3 class="card-title">Design Tools</h3>
+
+            <p class="card-description">
+                Tools for creating digital designs.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">⚙️</div>
+
+            <h3 class="card-title">Utilities</h3>
+
+            <p class="card-description">
+                Helpful utilities for everyday tasks.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+</div><!-- ========================================
+     VIDEOS PAGE
+======================================== --><div class="page-section" id="videos"><div class="page-heading">
+
+    <h1 class="page-title">Videos</h1>
+
+    <p class="page-description">
+        Educational content and video resources.
+    </p>
+
+</div>
+
+
+<section>
+
+    <div class="grid searchable">
+
+
+        <div class="card">
+
+            <div class="card-icon">🎬</div>
+
+            <h3 class="card-title">Tutorials</h3>
+
+            <p class="card-description">
+                Step-by-step educational videos.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">📚</div>
+
+            <h3 class="card-title">Education</h3>
+
+            <p class="card-description">
+                Learning resources and educational content.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+</div><!-- ========================================
+     FILES PAGE
+======================================== --><div class="page-section" id="files"><div class="page-heading">
+
+    <h1 class="page-title">Files</h1>
+
+    <p class="page-description">
+        Downloadable files and useful resources.
+    </p>
+
+</div>
+
+
+<section>
+
+    <div class="grid searchable">
+
+
+        <div class="card">
+
+            <div class="card-icon">📄</div>
+
+            <h3 class="card-title">Documents</h3>
+
+            <p class="card-description">
+                Documents and educational materials.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">📦</div>
+
+            <h3 class="card-title">Downloads</h3>
+
+            <p class="card-description">
+                Downloadable digital resources.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+</div><!-- ========================================
+     ACCOUNT PAGE
+======================================== --><div class="page-section" id="account"><div class="page-heading">
+
+    <h1 class="page-title">Account</h1>
+
+    <p class="page-description">
+        Personal account and profile information.
+    </p>
+
+</div>
+
+
+<div class="featured">
+
+    <h2 class="feature-title">Welcome</h2>
+
+    <p class="feature-description">
+        Your account dashboard will be available here.
+    </p>
+
+</div>
+
+</div><!-- ========================================
+     SETTINGS PAGE
+======================================== --><div class="page-section" id="settings"><div class="page-heading">
+
+    <h1 class="page-title">Settings</h1>
+
+    <p class="page-description">
+        Manage your preferences.
+    </p>
+
+</div>
+
+
+<div class="featured">
+
+    <h2 class="feature-title">Preferences</h2>
+
+    <p class="feature-description">
+        Settings and customization options will appear here.
+    </p>
+
+</div>
+
+</div><!-- ========================================
+     ABOUT PAGE
+======================================== --><div class="page-section" id="about"><div class="page-heading">
+
+    <h1 class="page-title">About</h1>
+
+    <p class="page-description">
+        Learn more about this platform.
+    </p>
+
+</div>
+
+
+<div class="featured">
+
+    <h2 class="feature-title">About This Website</h2>
+
+    <p class="feature-description">
+        A digital platform designed to provide useful
+        applications, tools, resources and educational content.
+    </p>
+
+</div>
+
+</div><!-- ========================================
+     FAQ PAGE
+======================================== --><div class="page-section" id="faq"><div class="page-heading">
+
+    <h1 class="page-title">
+        Frequently Asked Questions
+    </h1>
+
+    <p class="page-description">
+        Answers to common questions.
+    </p>
+
+</div>
+
+
+<div class="faq-item">
+
+    <h3>What is this website?</h3>
+
+    <p>
+        A platform for discovering digital resources.
+    </p>
+
+</div>
+
+
+<div class="faq-item">
+
+    <h3>Are the resources free?</h3>
+
+    <p>
+        Availability depends on the individual resource.
+    </p>
+
+</div>
+
+</div><!-- ========================================
+     SEARCH EMPTY STATE
+======================================== --><div class="no-results" id="noResults">
+    No results found.
+</div></div></main><!-- ========================================
+     FOOTER
+======================================== --><footer><div class="footer-container">
+
+
+    <div class="footer-grid">
+
+
+        <div>
+
+            <h3 class="footer-title">Aliakbar</h3>
+
+            <p class="footer-text">
+                Discover applications, tools and digital resources
+                in one place.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3 class="footer-title">Navigation</h3>
+
+            <a href="#home" data-page="home" class="footer-link">
+                Home
+            </a>
+
+            <a href="#apps" data-page="apps" class="footer-link">
+                Applications
+            </a>
+
+            <a href="#tools" data-page="tools" class="footer-link">
+                Tools
+            </a>
+
+        </div>
+
+
+        <div>
+
+            <h3 class="footer-title">Information</h3>
+
+            <a href="#about" data-page="about" class="footer-link">
+                About
+            </a>
+
+            <a href="#faq" data-page="faq" class="footer-link">
+                FAQ
+            </a>
+
+            <a href="#account" data-page="account" class="footer-link">
+                Account
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="copyright">
+        © 2026 Aliakbar. All Rights Reserved.
+    </div>
+
+
+</div>
+
+</footer><!-- ========================================
+     JAVASCRIPT
+======================================== --><script>
+
+/* ========================================
+   01. ELEMENTS
+======================================== */
 
 const menuButton = document.getElementById("menuButton");
 const closeButton = document.getElementById("closeButton");
+
 const drawer = document.getElementById("mobileDrawer");
 const overlay = document.getElementById("overlay");
 
 const searchInput = document.getElementById("searchInput");
 const noResults = document.getElementById("noResults");
 
+const homeButton = document.getElementById("homeButton");
+
 const pages = document.querySelectorAll(".page-section");
 const navigationLinks = document.querySelectorAll("[data-page]");
 
 
-/* MOBILE MENU */
+/* ========================================
+   02. DRAWER
+======================================== */
 
 function openMenu() {
 
@@ -1248,10 +1928,10 @@ function openMenu() {
     document.body.classList.add("menu-open");
 
     drawer.setAttribute("aria-hidden", "false");
-
     menuButton.setAttribute("aria-expanded", "true");
 
 }
+
 
 function closeMenu() {
 
@@ -1261,16 +1941,17 @@ function closeMenu() {
     document.body.classList.remove("menu-open");
 
     drawer.setAttribute("aria-hidden", "true");
-
     menuButton.setAttribute("aria-expanded", "false");
 
 }
+
 
 menuButton.addEventListener("click", openMenu);
 
 closeButton.addEventListener("click", closeMenu);
 
 overlay.addEventListener("click", closeMenu);
+
 
 document.addEventListener("keydown", function(event) {
 
@@ -1281,15 +1962,40 @@ document.addEventListener("keydown", function(event) {
 });
 
 
-/* PAGE NAVIGATION */
+/* ========================================
+   03. SEARCH RESET
+======================================== */
+
+function resetSearch() {
+
+    searchInput.value = "";
+
+    document.querySelectorAll(".searchable .card").forEach(card => {
+
+        card.style.display = "";
+
+    });
+
+    noResults.style.display = "none";
+
+}
+
+
+/* ========================================
+   04. PAGE NAVIGATION
+======================================== */
 
 function showPage(pageId, updateHistory = true) {
 
     const targetPage = document.getElementById(pageId);
 
-    if (!targetPage || !targetPage.classList.contains("page-section")) {
+    if (!targetPage ||
+        !targetPage.classList.contains("page-section")) {
+
         pageId = "home";
+
     }
+
 
     pages.forEach(page => {
 
@@ -1300,49 +2006,42 @@ function showPage(pageId, updateHistory = true) {
 
     });
 
+
     navigationLinks.forEach(link => {
 
-        const isActive = link.dataset.page === pageId;
+        const active = link.dataset.page === pageId;
 
-        link.classList.toggle("active", isActive);
+        link.classList.toggle("active", active);
 
-        if (isActive) {
+        if (active) {
+
             link.setAttribute("aria-current", "page");
+
         } else {
+
             link.removeAttribute("aria-current");
+
         }
 
     });
 
+
     closeMenu();
+    resetSearch();
 
-    /* Reset search */
-
-    if (searchInput) {
-
-        searchInput.value = "";
-
-        document.querySelectorAll(".searchable .card").forEach(card => {
-            card.style.display = "";
-        });
-
-        noResults.style.display = "none";
-
-    }
-
-    /* Update URL */
 
     if (updateHistory) {
 
         const newHash = "#" + pageId;
 
         if (location.hash !== newHash) {
+
             history.pushState(null, "", newHash);
+
         }
 
     }
 
-    /* Scroll to top */
 
     window.scrollTo({
         top: 0,
@@ -1352,80 +2051,88 @@ function showPage(pageId, updateHistory = true) {
 }
 
 
-/* NAVIGATION CLICK */
+/* ========================================
+   05. NAVIGATION CLICK
+======================================== */
 
 document.addEventListener("click", function(event) {
 
-    const link = event.target.closest('a[href^="#"]');
+    const link = event.target.closest("a[data-page]");
 
     if (!link) return;
 
-    const pageId = link.getAttribute("href").substring(1);
-
-    const targetPage = document.getElementById(pageId);
-
-    if (!targetPage || !targetPage.classList.contains("page-section")) {
-        return;
-    }
-
     event.preventDefault();
 
-    showPage(pageId);
+    showPage(link.dataset.page);
 
 });
 
 
-/* BROWSER BACK / FORWARD */
+/* ========================================
+   06. HOME BUTTON
+======================================== */
+
+homeButton.addEventListener("click", function() {
+
+    showPage("home");
+
+});
+
+
+/* ========================================
+   07. BROWSER HISTORY
+======================================== */
 
 window.addEventListener("popstate", function() {
 
-    const pageId = location.hash.replace("#", "") || "home";
+    const pageId = location.hash.substring(1) || "home";
 
     showPage(pageId, false);
 
 });
 
 
-/* INITIAL PAGE */
+/* ========================================
+   08. INITIAL PAGE
+======================================== */
 
-function initializePage() {
+const initialPage = location.hash.substring(1) || "home";
 
-    const pageId = location.hash.replace("#", "") || "home";
-
-    showPage(pageId, false);
-
-}
-
-initializePage();
+showPage(initialPage, false);
 
 
-/* SEARCH */
+/* ========================================
+   09. SEARCH
+======================================== */
 
 searchInput.addEventListener("input", function() {
 
-    const query = this.value.trim().toLocaleLowerCase("fa");
+    const query = this.value.trim().toLowerCase();
 
     const activePage = document.querySelector(".page-section.active");
 
     if (!activePage) return;
 
-    const cards = activePage.querySelectorAll(".searchable .card");
+
+    const cards = activePage.querySelectorAll(
+        ".searchable .card"
+    );
 
     let count = 0;
 
+
     cards.forEach(card => {
 
-        const content = card.textContent.toLocaleLowerCase("fa");
+        const content = card.textContent.toLowerCase();
 
         const matched = content.includes(query);
 
         card.style.display = matched ? "" : "none";
 
-        if (matched) {
-            count++;
-        }
+        if (matched) count++;
 
     });
+
 
     noResults.style.display =
         query && count === 0 ? "block" : "none";
@@ -1433,7 +2140,9 @@ searchInput.addEventListener("input", function() {
 });
 
 
-/* RIPPLE EFFECT */
+/* ========================================
+   10. RIPPLE EFFECT
+======================================== */
 
 document.addEventListener("click", function(event) {
 
@@ -1441,9 +2150,11 @@ document.addEventListener("click", function(event) {
 
     if (!target) return;
 
+
     const rect = target.getBoundingClientRect();
 
     const size = Math.max(rect.width, rect.height);
+
 
     const ripple = document.createElement("span");
 
@@ -1458,10 +2169,14 @@ document.addEventListener("click", function(event) {
     ripple.style.top =
         (event.clientY - rect.top - size / 2) + "px";
 
+
     target.appendChild(ripple);
 
+
     ripple.addEventListener("animationend", function() {
+
         ripple.remove();
+
     });
 
 });
